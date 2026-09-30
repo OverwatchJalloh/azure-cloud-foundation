@@ -1,1 +1,34 @@
+Final Architecture:
 
+                         INTERNET
+                            │
+                            ▼
+                     Public IP
+                            │
+                            ▼
+                    ┌─────────────┐
+                    │    NSG      │
+                    └──────┬──────┘
+                           │
+                    ┌──────▼──────┐
+                    │  WebSubnet  │
+                    │             │
+                    │ Linux VM    │
+                    │   + Nginx   │
+                    └──────┬──────┘
+                           │
+                     Azure VNet
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+       AdminSubnet                Storage Account
+             │                           │
+       Future resources                  │
+                                         ▼
+                                  Blob Container
+                                         │
+                                         ▼
+                                  Azure Monitor
+                                         │
+                                         ▼
+                                      Alert
